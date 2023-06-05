@@ -27,9 +27,13 @@ const fetchSinglePlayer = async (playerId) => {
 
         const response = await fetch(`${APIURL}/${id}`);
         const players = await response.json();
-        console.log(players)
+        const playerShow= document.createElement('div');
+        playerShow.classList.add('players');
+        playerShow.innerHTML = `
+        <h4>${players.name}</h4>
+        <p>${players.breed}</p>
+        <p>${players.status}</p>`;
 
-        return players;
     } catch (err) {
         console.error(`Oh no, trouble fetching player #${playerId}!`, err);
     }
