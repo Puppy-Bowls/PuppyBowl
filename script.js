@@ -33,7 +33,7 @@ const fetchSinglePlayer = async (playerId) => {
         <h4>${players.name}</h4>
         <p>${players.breed}</p>
         <p>${players.status}</p>`;
-
+        all-players-container.append(playerShow)
     } catch (err) {
         console.error(`Oh no, trouble fetching player #${playerId}!`, err);
     }
