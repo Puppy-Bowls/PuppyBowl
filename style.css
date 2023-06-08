@@ -1,0 +1,70 @@
+*{
+    padding: 10px;
+    margin: 0;
+    font-family: Roboto;
+    box-sizing: border-box;
+    display: grid;
+    justify-content: center;
+}
+
+body {
+    background-color: #248a2c;
+}
+
+#puppy-bowl-banner {
+    background-image: url(https://us1-prod-images.disco-api.com/2023/02/07/ea37d85d-398b-3f77-a021-9fa8ce3f172d.jpeg?bf=0&f=jpg&p=true&q=85&w=1920);
+    background-repeat: no-repeat;
+    background-position: -50px -150px;
+    border-radius: 25px;
+    width: 100%;
+    height: 400px;
+    position: 0px 300px;
+}
+
+#all-players-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 50px;
+}
+
+.player {
+    background-color: #c8cfcd;
+    border: 5px solid black;
+    border-radius: 20px;
+    padding: 25px;
+    margin: 25px auto;
+}
+
+.player img {
+    border-radius: 30px;
+}
+
+/* maybe addd back */
+/* .details-button:hover {
+    background-color: green;
+} */
+
+h1 {
+    font-family: Graduate;
+    font-size: 5rem;
+    display: grid;
+    justify-content: center;
+}
+
+h2 {
+    color: red;
+    font-size: 2rem;
+    text-decoration: underline;
+}
+
+#starting-lineup {
+    color: #dceb31;
+}
+
+.details-button {
+    margin-bottom: 15px;
+}
+
+.delete-button:hover {
+    background-color: red;
+}                   
