@@ -2,36 +2,24 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 body {
-  background-image: linear-gradient(180deg, #f00808 30%, #0000f0 30%, #0000f0 50%, #f00808 50%, #f00808 80%, #0000f0 80%, #0000f0 100%);
-  background-size: 150.00px 150.00px;
+background-color: white;
+font-weight: bold;
+background-color: #686868;
+}
 
-}
-header {
-  background-color: #000;
-  color: #fff;
-  padding: 20px;
-  display: flex;
-}
 header h1 {
   font-size: 2em;
   font-weight: 400;
   margin: 0;
+  text-align: center;
+  border: solid black;
+  background-image: linear-gradient(red,#686868);
+  
 }
 
-
-header nav {
-  margin-left: auto;
-  margin-top: auto;
-}
-
-header nav a {
-  color: #fff;
-  text-decoration: none;
-  padding: 10px;
-}
 #new-player-form {
   display: flex;
   flex-direction: column;
@@ -40,9 +28,10 @@ header nav a {
   margin: 0 auto;
 }
 #formBtn {
-  width: 30%;
-  height: 10%;
+  width: 35%;
+  height: 30%;
   margin-left: 30%;
+  cursor: grab;
 
 }
 #new-player-form input {
@@ -50,23 +39,33 @@ header nav a {
   margin: 10px 0;
   padding: 10px;
   font-size: 1.2em;
+  font-weight: bold;
 }
+.delete-button, .detail-button{
+  cursor: grab;
+  border: #686868 solid 2px;
+  padding: 15px 30px;
+ float:left;
+ display: flex;
+}
+.delete-button:hover, .detail-button:hover{
+  background-color: rgb(226, 35, 35);
 
+}
 #new-player-form textarea {
   width: 100%;
   margin: 10px 0;
   padding: 10px;
   font-size: 1.2em;
+  font-weight: bolder;
 }
 #all-players-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-h1{
-  text-align: center;
-}
-.player {
+
+.players {
   flex-basis: 200px;
   flex-grow: 1;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -76,27 +75,18 @@ h1{
 
 .image {
   width: 11rem;
+  border-radius: 40%;
 }
 
-.single-player-view {
+
+span{
+  background-color: rgb(226, 35, 35);
   flex-basis: 500px;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
   margin: 5px 10px;
   padding: 10px;
   border-radius: 10px;
-
+  align-items: center;
   display: flex;
   flex-direction: column;
-}
-.details{
-  visibility: hidden;
-}
-.mystyle {
-  width: 100%;
-  padding: 25px;
-  background-color: white;
-  color: black;
-  font-style: bold;
-  font-size: 30px;
-  visibility: visible;
 }
