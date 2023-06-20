@@ -179,26 +179,14 @@ const renderNewPlayerForm = () => {
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
     
-            // let playerData = {
-            //     name: form.name.value,
-            //     imageUrl: form.imageUrl.value,
-            //     breed: form.breed.value,
-            // };
-
             let name = document.getElementById("name").value;
             let imageUrl=document.getElementById("imageUrl").value;
 
             let breed=document.getElementById("breed").value;
     
             await addNewPlayer(name,imageUrl,breed);
-    
-            // const players = await fetchAllPlayers();
-            // renderAllPlayers(players);
-            // if(name||imageUrl||breed===""){
-            //     alert("Please add all info!!!!")
-            // }
-
-
+            
+            form.reset();
 
         });
     
