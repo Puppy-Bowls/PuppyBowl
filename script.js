@@ -27,18 +27,26 @@ const fetchAllPlayers = async () => {
 const fetchSinglePlayer = async (id) => {
     try {
         const response= await fetch(`${APIURL}/${id}`)
-        const players = await response.json();
+        let players = await response.json();
+        players = players.data.player;
         console.log(players);
-        // const playerElement = document.createElement('div');
-        // playerElement.classList.add('players');
-        // playerElement.innerHTML = `
-        //     <h4>${players.name}</h4>
-        //     <p>${players.breed}</p>
-        //     <p>${players.status}</p>
-        //     <p>${players.imageUrl}</p>`;
-        // const playerId = document.getElementById(id);
-        // playerId.appendChild(playerElement);
-        // console.log(response);
+        const playerElement = document.createElement('div');
+        playerElement.classList.add('players');
+        playerElement.innerHTML = `
+            <h4>${players.id}</h4>
+            <h4>${players.breed}</h4>
+            <p>${players.status}</p>
+            <p>${players.createdAt}</p>
+            <p>${players.updatedAt}</p>
+            <p>${players.teamId}</p>
+            <p>${players.cohortId}</p>`;
+            //add these?
+            // <h4>${players.name}</h4>
+            //<p>${players.imageUrl}</p>
+
+        const playerId = document.getElementById(id);
+        playerId.appendChild(playerElement);
+        console.log(response);
         return players
     } catch (err) {
 
@@ -113,21 +121,22 @@ const renderAllPlayers = async (players) => {
         playerContainer.innerHTML = '';
     
         players.data.players.forEach((player) => {
-            const playerElement = document.createElement('div');
+            const playerElement = document.createElement('span');
             playerElement.classList.add('player');
             playerElement.innerHTML = `
                 <h2>${player.name}</h2>
-                <img class="image"src="${player.imageUrl}"  >
-                <p class="details">${player.id}</p>
-                <p class="details">${player.breed}</p>
-                <p class="details">${player.status}</p>
+                <img class="image"src="${player.imageUrl}">
+                <p>See details below</p>
 
                 <button class="delete-button" data-id="${player.id}">Remove</button>
                 <button class="detail-button" data-id="${player.id}">See Details</button>
             `;
-                //add these
+                //add these??
+                // <p class="details">${player.breed}</p>
+                //<p class="details">${player.status}</p>
                 // <p>${player.createdAt}</p>
                 // <p>${player.updatedAt}</p>
+                //  <p>${player.id}</p>
                 // <p>${player.teamId}</p>
                 // <p>${player.cohortId}</p>
                 playerElement.setAttribute("id", player.id);
@@ -139,14 +148,12 @@ const renderAllPlayers = async (players) => {
                 removePlayer(player.id);
             });    
             let detailButton = playerElement.querySelector('.detail-button');
-            detailButton.addEventListener('onclick', async (event) => {
+            detailButton.addEventListener('click', async (event) => {
                 event.preventDefault();
-                await fetchSinglePlayer(player.id);
-                document.getElementsByClassName("details").style.visibility="visible";
-                // console.log(event);
-            });
+                await fetchSinglePlayer(player.id);        
+            },{once:true});
         });
-            
+
         
     } catch (err) {
         console.log('Uh oh, trouble rendering players!', err);
