@@ -2,9 +2,9 @@ const playerContainer = document.getElementById('all-players-container');
 const newPlayerFormContainer = document.getElementById('new-player-form');
 
 // Add your cohort name to the cohortName variable below, replacing the 'COHORT-NAME' placeholder
-const cohortName = '/2302-ACC-ET-WEB-PT-E'
+const cohortName = '2302-ACC-ET-WEB-PT-E'
 // Use the APIURL variable for fetch requests
-const PLAYERS_API_URL = `https://fsa-puppy-bowl.herokuapp.com/api${cohortName}/players`;
+const PLAYERS_API_URL = `https://fsa-puppy-bowl.herokuapp.com/api/${cohortName}/players/`;
 
 /**
  * It fetches all players from the API and returns them
@@ -34,9 +34,16 @@ const fetchSinglePlayer = async (playerId) => {
 // add new player 
 const addNewPlayer = async (playerObj) => {
     try {
-        const response = await fetch(`${PLAYERS_API_URL}/${playerObj.id}`, { method: 'POST' });
-        const player = await response.json();
-        return player;
+        console.log(playerObj);
+        const response = await fetch(`${PLAYERS_API_URL}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(playerObj)
+        });
+        const newPlayer = await response.json();
+        return newPlayer;
     } catch (err) {
         console.error('Oops, something went wrong with adding that player!', err);
     }
@@ -56,7 +63,13 @@ const removePlayer = async (playerId) => {
     }
 };
 
-const renderForm = () => {
+// Form validations
+newPlayerFormContainer.addEventListener("submit", (e) => {
+    e.preventDefault();
+    formValidation();
+});
+
+const renderForm = async () => {
     const form = document.getElementById('new-player-form');
 
     form.innerHTML = `
@@ -79,45 +92,42 @@ const renderForm = () => {
 
 
     addButton.addEventListener('click', async (event) => {
+
+        event.preventDefault();
+        const player = {
+            name: document.querySelector('#name').value,
+            breed: document.querySelector('#breed').value,
+            status: document.querySelector('#status').value,
+            imageUrl: document.querySelector('#imageUrl').value,
+            createdAt: new Date(),
+            updatedAt: new Date(),
+            teamId: null,
+            cohortId: 379
+        }
+
+        console.log(player)
         try {
-
-            event.preventDefault();
-            const body = {
-                name: document.querySelector('#name').value,
-                breed: document.querySelector('#breed').value,
-                status: document.querySelector('#status').value,
-                imageUrl: document.querySelector('#imageUrl').value
-            }
-
-            // test (delete)
-            // console.log(document.querySelector('#name').value);
-
-            const response = await fetch(PLAYERS_API_URL, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(body)
-            })
-            const data = await response.json();
-            console.log(data)
+            await addNewPlayer(player);
+            const players = await fetchAllPlayers();
+            console.log("this works I think? (remove me)");
+            renderPlayers(players);
         } catch (error) {
             console.log(error);
         }
     })
 }
 
-
-// render all parties
+// Render all players
 const renderPlayers = async (players) => {
     try {
         playerContainer.innerHTML = '';
         players.data.players.forEach((player) => {
             const playerElement = document.createElement('div');
             playerElement.classList.add('player');
+            playerElement.classList.add('player');
             playerElement.innerHTML = `
                 <h2>${player.name}</h2>
-                <img src="${player.imageUrl}" width= 400 height=500> 
+                <img src="${player.imageUrl}" width=600px height=500px> 
                 <p>${player.status}</p>
                 <p>${player.imageUrl}</p>
                 <p>${player.createdAt}</p>
@@ -134,13 +144,13 @@ const renderPlayers = async (players) => {
                 try {
                     detailsButton.innerHTML = `
           <div id="details">
-                <h2>Name: ${player.name}</h2>
-                <p>Breed: ${player.breed}</p>
-                <p>Status: ${player.status}</p>
-                <p>Image Url: ${player.imageUrl}</p>
-                <p>Created: ${player.createdAt}</p>
-                <p>Team ID: ${player.teamId}</p>
-                <p>Cohort ID: ${player.cohortId}</p>
+                <h2><b>Name:</b> ${player.name}</h2>
+                <p><b>Breed:</b> ${player.breed}</p>
+                <p><b>Status:</b> ${player.status}</p>
+                <p><b>Image Url:</b> ${player.imageUrl}</p>
+                <p><b>Created:</b> ${player.createdAt}</p>
+                <p><b>Team ID:</b> ${player.teamId}</p>
+                <p><b>Cohort ID:</b> ${player.cohortId}</p>
           </div>
           `;
                 } catch (error) {
@@ -158,40 +168,15 @@ const renderPlayers = async (players) => {
                 }
             });
         });
-    } catch (error) {
+    } catch (error) {                                                                                                                                                                                                                                           wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
         console.error(error);
     }
 };
 
-// const renderNewPlayer = async (newPlayer) => {
-//     try{
-//         newPlayerFormContainer.innerHTML = '';
-//         const newPlayerElement = document.createElement('div');
-//         newPlayerElement.classList.add('new-player');
-//         newPlayerElement.innerHTML = `
-//             <h2>Name: ${newPlayer.name}</h2>
-//             <p>Breed: ${newPlayer.breed}</p>
-//             <p>Status: ${newPlayer.status}</p>
-//             <p>Image Url: ${newPlayer.imageUrl}</p>
-//             <p>Created at: ${newPlayer.createdAt}</p>
-//             <p>Team Id: ${newPlayer.teamId}</p>
-//             <p>Cohort Id: ${newPlayer.cohortId}</p>
-//         `
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
-
-// init function
 const init = async () => {
     try {
-
         const players = await fetchAllPlayers();
         console.log(players);
-
-
-        // // I used (id = 6) for this example
-        // fetchSinglePlayer(662);
 
         renderPlayers(players);
 
@@ -203,23 +188,3 @@ const init = async () => {
 };
 
 init();
-
-
-
-
-
-
-
-
-
-
-
-
-
-// newPlayerFormContainer.innerHTML = '';
-// const newPlayerElement = document.createElement('div');
-// newPlayerElement.classList.add('new-player');
-// newPlayerElement.innerHTML = `
-//     <label>Name: ${newPlayer.name}</label>
-//     <input type="text"><br>
-// `
