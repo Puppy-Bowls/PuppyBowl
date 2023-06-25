@@ -2,4 +2,73 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  background-color: aqua;
 }
+
+#all-players-container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .player{
+    flex-basis: 200px;
+    flex-grow: 1;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+    margin: 5px 10px;
+    padding: 10px;
+    border-radius: 10px;
+    display: grid;
+    flex-direction: column;
+    background-color: grey;
+    justify-content: center;
+  }
+  p{
+    background-color: grey;
+  }
+
+  .player img, .player-view img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 10px 0px;
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 10px;
+    background-color: grey;
+  }
+  
+  button{
+    background-color: grey;
+  }
+  .info > p {
+    margin: 5px;
+  }
+
+  .title {
+    font-size: x-large;
+    background-color: grey;
+  }
+
+  .number {
+    font-style: italic;
+    background-color: grey;
+  }
+
+  .player-view {
+    flex-basis: 500px;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+    margin: 5px 10px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: grey;
+    justify-content: center;
+  }
+
+  .player-view > p {
+    margin: 10px 0px 0px 0px;
+  }
