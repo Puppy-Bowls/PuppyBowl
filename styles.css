@@ -17,7 +17,6 @@ header h1 {
   text-align: center;
   border: solid black;
   background-image: linear-gradient(red,#686868);
-  
 }
 
 #new-player-form {
@@ -50,7 +49,6 @@ header h1 {
 }
 .delete-button:hover, .detail-button:hover{
   background-color: rgb(226, 35, 35);
-
 }
 #new-player-form textarea {
   width: 100%;
@@ -77,8 +75,6 @@ header h1 {
   width: 11rem;
   border-radius: 40%;
 }
-
-
 span{
   background-color: rgb(226, 35, 35);
   flex-basis: 500px;
