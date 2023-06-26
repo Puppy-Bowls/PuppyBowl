@@ -1,3 +1,4 @@
+
 const newPlayerFormContainer = document.getElementById('new-player-form');
 const playerContainer = document.getElementById('all-players-container');
 
