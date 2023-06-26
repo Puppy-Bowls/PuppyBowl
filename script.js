@@ -40,9 +40,7 @@ const fetchSinglePlayer = async (id) => {
             <p>${players.updatedAt}</p>
             <p>${players.teamId}</p>
             <p>${players.cohortId}</p>`;
-            //add these?
-            // <h4>${players.name}</h4>
-            //<p>${players.imageUrl}</p>
+
 
         const playerId = document.getElementById(id);
         playerId.appendChild(playerElement);
@@ -131,14 +129,7 @@ const renderAllPlayers = async (players) => {
                 <button class="delete-button" data-id="${player.id}">Remove</button>
                 <button class="detail-button" data-id="${player.id}">See Details</button>
             `;
-                //add these??
-                // <p class="details">${player.breed}</p>
-                //<p class="details">${player.status}</p>
-                // <p>${player.createdAt}</p>
-                // <p>${player.updatedAt}</p>
-                //  <p>${player.id}</p>
-                // <p>${player.teamId}</p>
-                // <p>${player.cohortId}</p>
+
                 playerElement.setAttribute("id", player.id);
             playerContainer.appendChild(playerElement);
     
