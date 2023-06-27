@@ -1,74 +1,86 @@
+
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  background-color: aqua;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+font-weight: bold;
+background-color: #ffe6d0;
 }
 
+header h1 {
+  font-size: 2em;
+  font-weight: 400;
+  margin: 0;
+  text-align: center;
+  border: solid black;
+  background-image: linear-gradient(#d0eaff,#686868);
+}
+
+#new-player-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  margin: 0 auto;
+}
+#formBtn {
+  width: 35%;
+  height: 30%;
+  margin-left: 30%;
+  cursor: grab;
+
+}
+#new-player-form input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 1.2em;
+}
+.delete-button, .detail-button{
+  cursor: grab;
+  border: black solid 1px;
+  padding: 15px 30px;
+ float:left;
+ display: flex;
+}
+.delete-button:hover, .detail-button:hover{
+  background-color: #d0eaff;
+}
+#new-player-form textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 20px;
+}
 #all-players-container {
-    display: flex;
-    justify-content: space-evenly;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
 
-  .player{
-    flex-basis: 200px;
-    flex-grow: 1;
-    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
-    margin: 5px 10px;
-    padding: 10px;
-    border-radius: 10px;
-    display: grid;
-    flex-direction: column;
-    background-color: grey;
-    justify-content: center;
-  }
-  p{
-    background-color: grey;
-  }
+.players {
+  flex-basis: 200px;
+  flex-grow: 1;
+  box-shadow: 0 0 10px black;
+  margin: 10px;
+  padding: 10px;
+}
 
-  .player img, .player-view img {
-    width: 100%;
-    border-radius: 10px;
-    margin: 10px 0px;
-  }
-
-  .info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    line-height: 10px;
-    background-color: grey;
-  }
-  
-  button{
-    background-color: grey;
-  }
-  .info > p {
-    margin: 5px;
-  }
-
-  .title {
-    font-size: x-large;
-    background-color: grey;
-  }
-
-  .number {
-    font-style: italic;
-    background-color: grey;
-  }
-
-  .player-view {
-    flex-basis: 500px;
-    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
-    margin: 5px 10px;
-    padding: 10px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    background-color: grey;
-    justify-content: center;
-  }
-
-  .player-view > p {
-    margin: 10px 0px 0px 0px;
-  }
+.image {
+  width: 11rem;
+  border-radius: 40%;
+}
+span{
+  background-color: #d0eaff;
+  flex-basis: 500px;
+  box-shadow: 0 4px 10px 0 black;
+  margin: 5px 10px;
+  padding: 10px;
+  border-radius: 10px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
