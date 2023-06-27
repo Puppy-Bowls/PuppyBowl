@@ -5,6 +5,7 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 body {
 font-weight: bold;
 background-color: #ffe6d0;
@@ -39,16 +40,21 @@ header h1 {
   padding: 10px;
   font-size: 1.2em;
 }
+
 .delete-button, .detail-button{
   cursor: grab;
   border: black solid 1px;
+}
+
   padding: 15px 30px;
  float:left;
  display: flex;
 }
+
 .delete-button:hover, .detail-button:hover{
   background-color: #d0eaff;
 }
+
 #new-player-form textarea {
   width: 100%;
   margin: 10px 0;
