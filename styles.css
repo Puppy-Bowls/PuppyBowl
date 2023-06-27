@@ -5,10 +5,10 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 body {
-background-color: white;
 font-weight: bold;
-background-color: #686868;
+background-color: #ffe6d0;
 }
 
 header h1 {
@@ -17,7 +17,7 @@ header h1 {
   margin: 0;
   text-align: center;
   border: solid black;
-  background-image: linear-gradient(red,#686868);
+  background-image: linear-gradient(#d0eaff,#686868);
 }
 
 #new-player-form {
@@ -39,24 +39,27 @@ header h1 {
   margin: 10px 0;
   padding: 10px;
   font-size: 1.2em;
-  font-weight: bold;
 }
+
 .delete-button, .detail-button{
   cursor: grab;
-  border: #686868 solid 2px;
+  border: black solid 1px;
+}
+
   padding: 15px 30px;
  float:left;
  display: flex;
 }
+
 .delete-button:hover, .detail-button:hover{
-  background-color: rgb(226, 35, 35);
+  background-color: #d0eaff;
 }
+
 #new-player-form textarea {
   width: 100%;
   margin: 10px 0;
   padding: 10px;
-  font-size: 1.2em;
-  font-weight: bolder;
+  font-size: 20px;
 }
 #all-players-container {
   display: flex;
@@ -67,7 +70,7 @@ header h1 {
 .players {
   flex-basis: 200px;
   flex-grow: 1;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px black;
   margin: 10px;
   padding: 10px;
 }
@@ -77,9 +80,9 @@ header h1 {
   border-radius: 40%;
 }
 span{
-  background-color: rgb(226, 35, 35);
+  background-color: #d0eaff;
   flex-basis: 500px;
-  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px 0 black;
   margin: 5px 10px;
   padding: 10px;
   border-radius: 10px;
