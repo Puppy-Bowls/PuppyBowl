@@ -34,13 +34,13 @@ const fetchSinglePlayer = async (id) => {
         const playerElement = document.createElement('div');
         playerElement.classList.add('players');
         playerElement.innerHTML = `
-            <h4>${players.id}</h4>
-            <h4>${players.breed}</h4>
-            <p>${players.status}</p>
-            <p>${players.createdAt}</p>
-            <p>${players.updatedAt}</p>
-            <p>${players.teamId}</p>
-            <p>${players.cohortId}</p>`;
+            <h4><b>ID: </b>${players.id}</h4>
+            <h4><b>Breed: </b>${players.breed}</h4>
+            <p><b>Status: </b>${players.status}</p>
+            <p><b>Created At: </b>${players.createdAt}</p>
+            <p><b>Updated At: </b>${players.updatedAt}</p>
+            <p><b>Team ID: </b>${players.teamId}</p>
+            <p><b>Cohort ID: </b>${players.cohortId}</p>`;
 
 
         const playerId = document.getElementById(id);
@@ -159,7 +159,9 @@ const renderNewPlayerForm = () => {
         <label for="name">Name</label>
         <input type="text" id="name" name="name" placeholder="Name">
         <label for="imageUrl">Image URL</label>
-        <input type="text" id="imageUrl" name="imageUrl" placeholder="Image URL">
+        <input type="text" id="status" name="imageUrl" placeholder="Image URL">
+        <label for="breed">Status (field or bench)</label>
+        <input type="text" id="imageUrl" name="imageUrl" placeholder="field or bench">
         <label for="breed">Breed</label>
         <textarea id="breed" name="breed" placeholder="Breed"></textarea>
         <button id= "formBtn" type="submit">Create</button>
